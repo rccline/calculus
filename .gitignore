@@ -46,4 +46,6 @@ vignettes/*.pdf
 po/*~
 
 # RStudio Connect folder
-rsconnect/
+rsconnect/ 
+
+README.html
