@@ -1,0 +1,102 @@
+---
+title: "The Derivitive"
+author: "Robert Cline"
+date: "7/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
+library(tidyverse)
+library(ggtext)
+```
+
+#### Videos From Andrew Gard, *Equitable Equations*   
+1. [Definitionn of the Derivitive](https://www.youtube.com/watch?v=sTLZq1L4HKY)  
+1. [Derivitives from Graphs](https://www.youtube.com/watch?v=mA6tNR6H6uQ)  
+1. [Derivative at a point](https://www.youtube.com/watch?v=24m4aD-uALc)  
+1. [The Chain Rule](https://www.youtube.com/watch?v=K5j26CgyQJ8)   
+1. [Differentiation Formulas - Five most basic](https://www.youtube.com/watch?v=jV-gvWY3g1M)  
+1. [Introduction to Limits](https://www.youtube.com/watch?v=sllhb0mxfW4)  
+1. [Piecewise Functions](https://www.youtube.com/watch?v=7FwRw8wK-5Q)  
+1. [Finding Critical Values = Maxima and Minima](https://www.youtube.com/watch?v=F8cxtHmFN4E)   
+1. [Area as a Limit](https://www.youtube.com/watch?v=dcbd8xNnXyg)  
+1. [Definition of the Definite Interval](https://www.youtube.com/watch?v=C9lMSr3VXlA)   
+
+
+#### Videos from Math and Science: Calculus 1 [Jason Gibson](jason.gibson@MathTutorDVD.com):  
+1. [Evaluating Simple Limits with Substitution, Part  1](https://www.mathtutordvd.com/public/Calculus-1-Tutor-Limits.cfm)    
+1. [Evaluating Simple Limits with Substitution, Part 2](https://www.mathtutordvd.com/members/Lesson-2-Evaluating-Simple-Limits-with-Substitution-Part-2.cfm)    
+1. [Evaluating Limits by Factoring, Part 1](https://www.mathtutordvd.com/members/Lesson-3-Evaluating-Limits-by-Factoring-Part-1.cfm) 
+1. **[Evaluating Limits by Factoring, Part 2](https://www.mathtutordvd.com/members/Lesson-4-Evaluating-Limits-by-Factoring-Part-2.cfm)**  
+1. [Lesson 8: Limit Laws](https://www.mathtutordvd.com/members/Lesson-8-Limit-Laws.cfm)  
+1.
+
+### The Core Limit Laws:
+* These laws are linear and similar to rules of differentiation.
+* The laws of integration are similar.  
+
+1. **Sum:**  $\frac{lim}{x\rightarrow a} \left [  f(x)+ g(x) \right ] = \frac{lim}{x\rightarrow a}  f(x) + \frac{lim}{x\rightarrow a} g(x)$ 
+
+1. **Multiple** $\frac{lim}{x\rightarrow a} C{f(x)} = C \frac{lim}{x\rightarrow a }  f(x)$    
+
+1. **Difference** $\frac{lim}{x\rightarrow a} \left [  f(x) - g(x) \right ] = \frac{lim}{x\rightarrow a}  f(x) - \frac{lim}{x\rightarrow a} g(x)$  
+
+1. **Product**  $\frac{lim}{x\rightarrow a} \left [  f(x) g(x) \right ] = \left [\frac{lim}{x\rightarrow a}  f(x)\right ] \left [ \frac{lim}{x\rightarrow a} g(x)\right ]$ 
+
+1. **Quotient** $\frac{lim}{x\rightarrow a} \left [  \frac{f(x)} {g(x)} \right ] = \frac {\left [\frac{lim}{x\rightarrow a}  f(x)\right ]}{ \left [ \frac{lim}{x\rightarrow a} g(x)\right ]}$  
+
+1. **Additional limit rules** $\frac{lim}{x\rightarrow a} x^{n} = a^{n}$  
+
+1. **Additional limit rules** $\frac{lim}{x\rightarrow a} \left [ {f(x)}\right ]^{n}$ = $\left [ \frac{lim}{x\rightarrow a}  {f(x)}\right ]^{n}$  
+Meaning you can take the limit of the function, then square it; it is the same as taking the limit of a function which is squared. 
+Take the limit then raise to the power at the end.  
+
+1. $\frac{lim}{x\rightarrow a} C=C$  
+The limit is itself.  Any value of X you approach is X  
+
+1. $\frac{lim}{x\rightarrow a} x=a$
+
+1. **Additional limit rules** $\frac{lim}{x\rightarrow a} \frac{1}{x^n} = \frac {1}{a^n}$ Where $a \neq 0$  
+
+1. $\frac{lim}{x\rightarrow a} \sqrt[n]{x} = \sqrt[n]{a}$    
+
+1. $\frac{lim}{x\rightarrow a} \sqrt[n]{f(x)} = \sqrt[n]{\frac{lim}{x\rightarrow a}f(x)}$   
+
+
+
+
+
+
+```{r eval=FALSE}
+# https://www.codecogs.com/latex/eqneditor.php?lang=en-en
+
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}  
+library(tidyverse)
+### Using Expressions in labels:   https://stackoverflow.com/questions/36920492/squared-superscript-in-ggplot2-yaxis-label-in-r
+ggplot() +
+  xlim(c(-2, 2)) +
+  geom_function(fun = function(x) x+1 ) + # user defined function  
+  ggtitle("The User Defined Functions",
+          subtitle = expression("Plot of f(x) =" ~X+1)) +
+  labs(y=NULL) +
+  theme_bw()  
+```  
+
+
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}  
+library(tidyverse)
+### Using Expressions in labels:   https://stackoverflow.com/questions/36920492/squared-superscript-in-ggplot2-yaxis-label-in-r
+ggplot() +
+  xlim(c(-2, 2)) +
+  geom_function(fun = function(x) x^2 ) + # user defined function  
+  ggtitle("The User Defined Functions",
+          subtitle = expression("Plot of f(x) =" ~X^2)) +
+  labs(y=NULL) +
+  theme_bw()  
+```  
